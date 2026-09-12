@@ -1,0 +1,16 @@
+meta {
+  name: DELETE - Delete Product
+  type: http
+  seq: 5
+}
+
+delete {
+  url: {{BASE_URL}}/api/products?id={{PRODUCT_ID}}&user={{USER_ID}}
+  body: none
+  auth: inherit
+}
+
+params:query {
+  id: {{PRODUCT_ID}}
+  user: {{USER_ID}}
+}

@@ -1,0 +1,17 @@
+meta {
+  name: GET - List Products
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{BASE_URL}}/api/products?user={{USER_ID}}&page=1&pageSize=10
+  body: none
+  auth: inherit
+}
+
+params:query {
+  user: {{USER_ID}}
+  page: 1
+  pageSize: 10
+}

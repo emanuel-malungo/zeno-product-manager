@@ -1,0 +1,29 @@
+meta {
+  name: PATCH - Update Product
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{BASE_URL}}/api/products?id={{PRODUCT_ID}}&user={{USER_ID}}
+  body: json
+  auth: inherit
+}
+
+params:query {
+  id: {{PRODUCT_ID}}
+  user: {{USER_ID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "name": "iPhone 15 Pro",
+    "description": "Smartphone Apple atualizado",
+    "price": 950000,
+    "stock": 15
+  }
+}

@@ -1,0 +1,38 @@
+meta {
+  name: POST - Create Multiple Products
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{BASE_URL}}/api/users/products?userId={{USER_ID}}
+  body: json
+  auth: inherit
+}
+
+params:query {
+  userId: {{USER_ID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  [
+    {
+      "name": "Produto 1",
+      "description": "Descrição do produto 1",
+      "price": 10000,
+      "stock": 20,
+      "user": "{{USER_ID}}"
+    },
+    {
+      "name": "Produto 2",
+      "description": "Descrição do produto 2",
+      "price": 25000,
+      "stock": 15,
+      "user": "{{USER_ID}}"
+    }
+  ]
+}
