@@ -14,7 +14,7 @@ export async function createProductAction(data: CreateProductDto) {
     const product = await ProductsService.createProduct(data);
     revalidatePath("/products");
     return product;
-  } catch (error) {
+  } catch {
     throw new Error("Falha ao criar produto");
   }
 }
@@ -24,7 +24,7 @@ export async function createMultipleProductsAction(products: CreateProductDto[])
     const createdProducts = await ProductsService.createMultipleProducts(products);
     revalidatePath("/products");
     return createdProducts;
-  } catch (error) {
+  } catch {
     throw new Error("Falha ao criar produtos (em lote)");
   }
 }
@@ -34,7 +34,7 @@ export async function updateProductAction(id: string, userId: string, data: Upda
     const product = await ProductsService.updateProduct(id, data, userId);
     revalidatePath("/products");
     return product;
-  } catch (error) {
+  } catch {
     throw new Error("Falha ao atualizar produto");
   }
 }
@@ -44,7 +44,7 @@ export async function deleteProductAction(id: string, userId: string) {
     await ProductsService.deleteProduct(id, userId);
     revalidatePath("/products");
     return true;
-  } catch (error) {
+  } catch {
     throw new Error("Falha ao remover produto");
   }
 }
